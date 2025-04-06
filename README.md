@@ -9,7 +9,7 @@ Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Pytho
         * *Önerilen yöntem budur.*
 
 * **Kaynak Kod (`.py`):**
-    * **[🐍 Ana Kod Dosyası (run.py)](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
+    * **[🐍 Ana Kod Dosyası (Maliyet V2.py)](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
         * *Python kurulu ise doğrudan kodu görüntüleyip çalıştırmak veya indirmek için. İndirmek için "Raw" butonuna sağ tıklayıp "Farklı Kaydet" seçeneğini kullanabilirsiniz.*
 
 ---
