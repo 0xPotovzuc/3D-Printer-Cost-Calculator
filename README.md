@@ -1,93 +1,44 @@
-# 3D Printer Cost Calculator | 3D Yazıcı Maliyet Hesaplayıcı
+# 3D Baskı Maliyet & Kar Hesaplayıcı v2.4
 
-## English
+Bu masaüstü uygulaması, 3D baskı ile ürettiğiniz ürünlerin maliyetlerini detaylı bir şekilde hesaplamanıza ve karlı satış fiyatları belirlemenize yardımcı olmak için tasarlanmıştır. Özellikle filament, elektrik tüketimi, kargo ücretleri, pazaryeri komisyonları ve diğer ek giderleri göz önünde bulundurarak kapsamlı bir analiz sunar.
 
-This Python application is designed to calculate the cost of using a 3D printer. It provides a user-friendly interface to calculate filament cost and electricity consumption.
+## Temel Özellikler
 
-### Features
-- **Filament cost calculation** (cost per gram)
-- **Electricity cost calculation** (separate calculations for industrial and home use)
-- **Total cost calculation**
-- **Tkinter-based graphical interface**
-- **Easy to use**
+* **Filament Yönetimi:** Farklı filament türlerini ve kilogram başına maliyetlerini ekleyebilir, silebilir ve listeleyebilirsiniz.
+* **Kargo Ücretleri:** Anlaşmalı olduğunuz kargo firmalarını (PTT, MNG, Yurtiçi Kargo vb.) ve farklı desi/ağırlık aralıkları için ücretlerini kaydedebilirsiniz.
+* **Pazaryeri Komisyonları:** Satış yaptığınız pazaryerlerini (Trendyol, Hepsiburada, Etsy, Kendi Siteniz vb.) ve bu platformların komisyon oranlarını (yüzdesel + sabit ücret) tanımlayabilirsiniz. "Komisyonsuz" satışlar için "Other/None" seçeneği mevcuttur.
+* **Detaylı Maliyet Hesaplama:**
+    * Kullanılan filament miktarı (gram) ve türü.
+    * Baskı süresi (saat) ve yazıcının gücü (Watt).
+    * Ticari veya mesken elektrik tarifesi üzerinden elektrik maliyeti.
+    * Seçilen kargo firması ve desiye göre kargo maliyeti.
+    * Girebileceğiniz diğer ek giderler (örn. zımpara, boya, amortisman payı).
+* **Kar ve Satış Fiyatı:**
+    * Seçilen pazaryerine göre *tahmini* komisyon tutarı.
+    * Komisyon dahil *tahmini* toplam maliyet.
+    * Belirlenen elektrik tarifesine göre (Ticari/Mesken) %50 ve %100 kar marjları ile *önerilen* satış fiyatları (komisyon düşülerek hesaplanır).
+* **Veri Saklama:** Tüm ayarlarınız (filamentler, kargo, pazaryerleri, elektrik fiyatları) uygulamanın yanındaki `app_data_v2.4.json` dosyasında otomatik olarak saklanır ve uygulama açıldığında geri yüklenir.
+* **Kullanıcı Arayüzü:** Sekmeli yapısı sayesinde ayarlar ve hesaplama ekranı arasında kolay geçiş sağlar. `ttk` tema desteği ile daha modern bir görünüm sunar (sistem destekliyorsa).
+* **Kaydırılabilir Hesaplama:** Hesaplama sekmesinde dikey kaydırma çubuğu ile küçük ekranlarda daha iyi kullanılabilirlik.
 
-### Requirements
-Python must be installed to run this application. The following libraries are required:
+## v2.4 Değişiklikleri
 
-```bash
-pip install tkinter
-```
+* **Hesaplama Sekmesi Kaydırma:** "Maliyet & Kar Hesaplama" sekmesi içeriği artık dikey olarak kaydırılabilir, böylece tüm alanlar daha küçük pencerelerde bile görülebilir.
+* **Kararlılık İyileştirmeleri:** Önceki sürümlerde tespit edilen bazı iç söz dizimi (syntax) hataları giderildi (özellikle kargo ve pazaryeri ayarlarını kaydederken). Uygulamanın genel kararlılığı artırıldı.
 
-### Usage
-1. **To run the application:**
-   ```bash
-   python CostCalculator.py
-   ```
-2. **Enter the required details:**
-   - Consumed filament (grams)
-   - Filament cost (per kg)
-   - Usage duration (hours)
-   - Device power (Watts)
-   - Electricity Prices
-3. **Click the calculate button and view the results!**
+## Nasıl Kullanılır?
 
-### EXE File
-For users without Python installed, you can download the compiled EXE version here:
-[Download](https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/main/Cost%20Calculator.exe)
+* **`.exe` Kullanımı (Windows):** Eğer bir `.exe` dosyası indirildiyse, dosyayı çalıştırın. Ayarlar (`app_data_v2.4.json`) `.exe` ile aynı klasörde oluşturulacaktır. Yazma izniniz olduğundan emin olun.
+* **Kaynak Koddan Çalıştırma:**
+    1.  Sisteminizde Python 3 kurulu olduğundan emin olun. (Tkinter genellikle Python ile birlikte gelir).
+    2.  Depoyu klonlayın veya dosyaları indirin.
+    3.  Komut istemcisi veya terminali açıp kodun bulunduğu klasöre gidin.
+    4.  `python run.py` komutunu çalıştırın (`run.py` yerine ana dosyanızın adını yazın).
 
-### Screenshot
+## Veri Depolama
 
-![Screenshot](euro.png)
+Uygulama, tüm ayarlarınızı ve listelerinizi, çalıştırıldığı dizinde `app_data_v2.4.json` adında bir dosyada saklar. Bu dosyayı yedekleyebilir veya farklı bir bilgisayara taşıyarak ayarlarınızı koruyabilirsiniz.
 
-### Support Me
-If you liked this project, you can buy me a coffee:
-ETH: 0xfd74638d98fdda416c2d84c0a1714a7684d11213
+## Dil
 
-
-
----
-
-## Türkçe
-
-Bu Python uygulaması, 3D yazıcı kullanımının maliyetini hesaplamak için tasarlanmıştır. Kullanıcı dostu bir arayüz sunarak filament maliyeti ve elektrik tüketimini hesaplar.
-
-### Özellikler
-- **Filament maliyet hesaplama** (gram başına maliyet)
-- **Elektrik maliyeti hesaplama** (sanayi ve ev için ayrı hesaplama)
-- **Toplam maliyet hesaplama**
-- **Tkinter tabanlı grafik arayüz**
-- **Kolay kullanım**
-
-### Gereksinimler
-Bu uygulamayı çalıştırmak için Python yüklenmiş olmalıdır. Aşağıdaki kütüphaneler gereklidir:
-
-```bash
-pip install tkinter
-```
-
-### Kullanım
-1. **Uygulamayı çalıştırmak için:**
-   ```bash
-   python MaliyetHesaplayıcı.py
-   ```
-2. **Gerekli bilgileri girin:**
-   - Harcanan filament (gram)
-   - Filament maliyeti (kg başına)
-   - Kullanım süresi (saat)
-   - Cihaz gücü (Watt)
-3. **Hesapla tuşuna basın ve sonuçları görün!**
-
-### EXE Dosyası
-Python kurulu olmayan kullanıcılar için uygulamanın derlenmiş EXE sürümünü buradan indirebilirsiniz:
-[İndir](https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/main/Maliyet%20Hesaplay%C4%B1c%C4%B1.exe)
-
-### Ekran Görüntüsü
-
-![Ekran Görüntüsü](tl.png)
-
-### Bağış Yap
-Bu projeyi beğendiyseniz bana bir kahve ısmarlayabilirsiniz:
-ETH: 0xfd74638d98fdda416c2d84c0a1714a7684d11213
-
-
-
+Bu sürüm (v2.4) sadece **Türkçe** arayüz sunmaktadır.
