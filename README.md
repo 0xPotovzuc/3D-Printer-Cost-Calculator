@@ -5,8 +5,8 @@
 Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Python kaynak kodunu indirebilirsiniz.
 
 * **Çalıştırılabilir Program (`.exe` - Windows):**
-    * **[➡️ En Son Sürüm İndirme]([https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/V2.4/Maliyet%20V2.exe)**
-        * *Önerilen yöntem budur. Bağlantıya tıklayın, açılan sayfada "**Assets**" (Varlıklar) bölümünü bulun ve `.exe` uzantılı dosyayı indirin.*
+    * **[➡️ En Son Sürüm İndirme](https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/V2.4/Maliyet%20V2.exe)**
+        * *Önerilen yöntem budur.*
 
 * **Kaynak Kod (`.py`):**
     * **[🐍 Ana Kod Dosyası (run.py)](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
