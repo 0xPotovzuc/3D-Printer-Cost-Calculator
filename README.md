@@ -3,7 +3,7 @@
 ## 🚀 İndirme / Download
 
 Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Python kaynak kodunu indirebilirsiniz.
-
+https://www.virustotal.com/gui/file/0be81eaf54d8d3da8fccf03fa8a26742d73ecc4b2b8c322c74ead100020c44d5?nocache=1
 * **Çalıştırılabilir Program (`.exe` - Windows):**
     * **[➡️ En Son Sürüm İndirme](https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/V2.4/Maliyet%20V2.exe)**
         * *Önerilen yöntem budur.*
