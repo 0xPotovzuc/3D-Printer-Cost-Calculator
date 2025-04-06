@@ -16,7 +16,6 @@ Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Pytho
 
 ---
 
-*(README dosyasının geri kalan içeriği bu çizginin altına gelecek... Örneğin: Açıklama, Özellikler, Nasıl Kullanılır vb.)*
 
 Bu masaüstü uygulaması, 3D baskı ile ürettiğiniz ürünlerin maliyetlerini detaylı bir şekilde hesaplamanıza ve karlı satış fiyatları belirlemenize yardımcı olmak için tasarlanmıştır. Özellikle filament, elektrik tüketimi, kargo ücretleri, pazaryeri komisyonları ve diğer ek giderleri göz önünde bulundurarak kapsamlı bir analiz sunar.
 
