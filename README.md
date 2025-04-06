@@ -50,7 +50,7 @@ Bu masaüstü uygulaması, 3D baskı ile ürettiğiniz ürünlerin maliyetlerini
     1.  Sisteminizde Python 3 kurulu olduğundan emin olun. (Tkinter genellikle Python ile birlikte gelir).
     2.  Depoyu klonlayın veya dosyaları indirin.
     3.  Komut istemcisi veya terminali açıp kodun bulunduğu klasöre gidin.
-    4.  `python run.py` komutunu çalıştırın (`run.py` yerine ana dosyanızın adını yazın).
+    4.  `python Maliyet V2.py` komutunu çalıştırın .
 
 ## Veri Depolama
 
