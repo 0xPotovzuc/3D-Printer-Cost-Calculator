@@ -1,4 +1,20 @@
-# 3D Baskı Maliyet & Kar Hesaplayıcı v2.4
+# 🧾 3D Baskı Maliyet & Kar Hesaplayıcı v2.4 💰
+
+## 🚀 İndirme / Download
+
+Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Python kaynak kodunu indirebilirsiniz.
+
+* **Çalıştırılabilir Program (`.exe` - Windows):**
+    * **[➡️ En Son Sürüm İndirme]([https://github.com/KULLANICI_ADI/REPO_ADI/releases/latest](https://github.com/potovzuc/3D-Printer-Cost-Calculator/raw/refs/heads/V2.4/Maliyet%20V2.exe))**
+        * *Önerilen yöntem budur. Bağlantıya tıklayın, açılan sayfada "**Assets**" (Varlıklar) bölümünü bulun ve `.exe` uzantılı dosyayı indirin.*
+
+* **Kaynak Kod (`.py`):**
+    * **[🐍 Ana Kod Dosyası (run.py)](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
+        * *Python kurulu ise doğrudan kodu görüntüleyip çalıştırmak veya indirmek için. İndirmek için "Raw" butonuna sağ tıklayıp "Farklı Kaydet" seçeneğini kullanabilirsiniz.*
+
+---
+
+*(README dosyasının geri kalan içeriği bu çizginin altına gelecek... Örneğin: Açıklama, Özellikler, Nasıl Kullanılır vb.)*
 
 Bu masaüstü uygulaması, 3D baskı ile ürettiğiniz ürünlerin maliyetlerini detaylı bir şekilde hesaplamanıza ve karlı satış fiyatları belirlemenize yardımcı olmak için tasarlanmıştır. Özellikle filament, elektrik tüketimi, kargo ücretleri, pazaryeri komisyonları ve diğer ek giderleri göz önünde bulundurarak kapsamlı bir analiz sunar.
 
