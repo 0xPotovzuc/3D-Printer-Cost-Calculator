@@ -6,7 +6,7 @@ Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Pytho
 * **Virüs Total**
     **[Kontrol (Temiz)](https://www.virustotal.com/gui/file/0be81eaf54d8d3da8fccf03fa8a26742d73ecc4b2b8c322c74ead100020c44d5?nocache=1)**
         
-* **Çalıştırılabilir Program (`.py` - Windows):****Eski .exe dosyası olanlar silip bunu indirsin**
+* **Çalıştırılabilir Program (`.py` - Windows): Eski .exe dosyası olanlar silip bunu indirsin**
     * **[➡️ En Son Sürüm İndirme](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
         * *Önerilen yöntem budur.*
 
