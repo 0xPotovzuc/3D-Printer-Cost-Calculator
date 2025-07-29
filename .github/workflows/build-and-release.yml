@@ -1,5 +1,5 @@
 # Bu GitHub Actions iş akışının adı
-name: Build and Release EXE
+name: Build and Release EXE with Nuitka
 
 # İş akışının ne zaman tetikleneceğini belirler
 on:
@@ -15,7 +15,7 @@ jobs:
     # İşin çalışacağı sanal makineyi belirtir. Windows için 'windows-latest' kullanılır.
     runs-on: windows-latest
 
-    # YENİ EKLENDİ: İş akışına sürüm oluşturma izni verir
+    # İş akışına sürüm oluşturma izni verir
     permissions:
       contents: write
 
@@ -36,10 +36,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. Adım: PyInstaller ile .py dosyasını .exe'ye dönüştürür
-    - name: Build executable with PyInstaller
+    # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with Nuitka
       run: |
-        pyinstaller --onefile --windowed --name="Maliyet Hesaplayıcı" MaliyetV3.py
+        python -m nuitka --onefile --windows-disable-console --include-package=tkinter --output-name="Maliyet Hesaplayıcı" --output-dir=dist MaliyetV3.py
 
     # 5. Adım: Oluşturulan .exe dosyasını bir .zip arşivine sıkıştırır
     - name: Zip the executable
