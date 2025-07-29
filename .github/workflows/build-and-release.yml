@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
 
-    # YENİ EKLENDİ: Python'u UTF-8 karakter setini kullanmaya zorlar
+    # Python'u UTF-8 karakter setini kullanmaya zorlar
     env:
       PYTHONUTF8: "1"
 
