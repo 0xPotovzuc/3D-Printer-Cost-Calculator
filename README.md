@@ -1,61 +1,57 @@
-# 🧾 3D Baskı Maliyet & Kar Hesaplayıcı v2.0 💰
+# 3D Baskı Maliyet & Kar Hesaplayıcı Pro
 
-## 🚀 İndirme / Download
-
-Bu bölümden uygulamanın çalıştırılabilir Windows sürümünü veya Python kaynak kodunu indirebilirsiniz.
-* **Virüs Total**
-    **[Kontrol (Temiz)](https://www.virustotal.com/gui/file/0be81eaf54d8d3da8fccf03fa8a26742d73ecc4b2b8c322c74ead100020c44d5?nocache=1)**
-        
-* **Çalıştırılabilir Program (`.py` - Windows): Eski .exe dosyası olanlar silip bunu indirsin**
-    * **[➡️ En Son Sürüm İndirme](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
-        * *Önerilen yöntem budur.*
-
-* **Kaynak Kod (`.py`):**
-    * **[🐍 Ana Kod Dosyası (Maliyet V2.py)](https://raw.githubusercontent.com/potovzuc/3D-Printer-Cost-Calculator/refs/heads/V2.4/Maliyet%20V2.py)**
-        * *Python kurulu ise doğrudan kodu görüntüleyip çalıştırmak veya indirmek için. İndirmek için "Raw" butonuna sağ tıklayıp "Farklı Kaydet" seçeneğini kullanabilirsiniz.*
+Bu proje, 3D baskı ile üretim yapanlar için geliştirilmiş, kapsamlı bir maliyet ve kar hesaplama uygulamasıdır. Kullanıcı dostu arayüzü sayesinde filament, elektrik, kargo ve pazaryeri komisyonları gibi tüm giderleri kolayca hesaplayabilir ve satışlarınızı bir Excel dosyasında takip edebilirsiniz.
 
 ---
 
+## 🚀 İndirme (Download)
 
-Bu masaüstü uygulaması, 3D baskı ile ürettiğiniz ürünlerin maliyetlerini detaylı bir şekilde hesaplamanıza ve karlı satış fiyatları belirlemenize yardımcı olmak için tasarlanmıştır. Özellikle filament, elektrik tüketimi, kargo ücretleri, pazaryeri komisyonları ve diğer ek giderleri göz önünde bulundurarak kapsamlı bir analiz sunar.
+Uygulamanın en güncel ve stabil sürümünü aşağıdaki linkten indirebilirsiniz. Bu link sizi projenin "Releases" sayfasına yönlendirecektir.
 
-## Temel Özellikler
+[**► Son Sürümü İndir (Windows x64)**](https://github.com/[kullanici-adiniz]/[depo-adiniz]/releases/latest)
 
-* **Filament Yönetimi:** Farklı filament türlerini ve kilogram başına maliyetlerini ekleyebilir, silebilir ve listeleyebilirsiniz.
-* **Kargo Ücretleri:** Anlaşmalı olduğunuz kargo firmalarını (PTT, MNG, Yurtiçi Kargo vb.) ve farklı desi/ağırlık aralıkları için ücretlerini kaydedebilirsiniz.
-* **Pazaryeri Komisyonları:** Satış yaptığınız pazaryerlerini (Trendyol, Hepsiburada, Etsy, Kendi Siteniz vb.) ve bu platformların komisyon oranlarını (yüzdesel + sabit ücret) tanımlayabilirsiniz. "Komisyonsuz" satışlar için "Other/None" seçeneği mevcuttur.
-* **Detaylı Maliyet Hesaplama:**
-    * Kullanılan filament miktarı (gram) ve türü.
-    * Baskı süresi (saat) ve yazıcının gücü (Watt).
-    * Ticari veya mesken elektrik tarifesi üzerinden elektrik maliyeti.
-    * Seçilen kargo firması ve desiye göre kargo maliyeti.
-    * Girebileceğiniz diğer ek giderler (örn. zımpara, boya, amortisman payı).
-* **Kar ve Satış Fiyatı:**
-    * Seçilen pazaryerine göre *tahmini* komisyon tutarı.
-    * Komisyon dahil *tahmini* toplam maliyet.
-    * Belirlenen elektrik tarifesine göre (Ticari/Mesken) %50 ve %100 kar marjları ile *önerilen* satış fiyatları (komisyon düşülerek hesaplanır).
-* **Veri Saklama:** Tüm ayarlarınız (filamentler, kargo, pazaryerleri, elektrik fiyatları) uygulamanın yanındaki `app_data_v2.4.json` dosyasında otomatik olarak saklanır ve uygulama açıldığında geri yüklenir.
-* **Kullanıcı Arayüzü:** Sekmeli yapısı sayesinde ayarlar ve hesaplama ekranı arasında kolay geçiş sağlar. `ttk` tema desteği ile daha modern bir görünüm sunar (sistem destekliyorsa).
-* **Kaydırılabilir Hesaplama:** Hesaplama sekmesinde dikey kaydırma çubuğu ile küçük ekranlarda daha iyi kullanılabilirlik.
+---
 
-## v2.4 Değişiklikleri
+## ✨ Özellikler
 
-* **Hesaplama Sekmesi Kaydırma:** "Maliyet & Kar Hesaplama" sekmesi içeriği artık dikey olarak kaydırılabilir, böylece tüm alanlar daha küçük pencerelerde bile görülebilir.
-* **Kararlılık İyileştirmeleri:** Önceki sürümlerde tespit edilen bazı iç söz dizimi (syntax) hataları giderildi (özellikle kargo ve pazaryeri ayarlarını kaydederken). Uygulamanın genel kararlılığı artırıldı.
+- **Detaylı Maliyet Analizi:** Filament (gramaj bazında), elektrik (kWh ve tarifeye göre), kargo ve diğer ek giderleri hesaplama.
+- **Pazaryeri Entegrasyonu:** Farklı pazaryerleri için değişken komisyon oranları ve sabit ücretleri tanımlayabilme.
+- **Kar Hesaplama:** Belirlediğiniz kar marjına göre otomatik satış fiyatı önerme.
+- **Excel'e Satış Kaydı:** Her bir satışı, tüm maliyet ve kar detaylarıyla birlikte tek bir tuşla `satislar.xlsx` dosyasına kaydetme.
+- **Otomatik Özet Raporu:** Excel dosyasında, her yeni satışta otomatik olarak güncellenen ayrı bir "Özet" sayfası. Bu sayfa, harcanan toplam filament miktarını (her tür için ayrı) ve genel finansal toplamları (toplam maliyet, satış, kar) gösterir.
+- **Esnek Ayarlar:** Filament türleri, kargo firmaları, elektrik tarifeleri ve pazaryerlerini kolayca ekleyip düzenleyebilme.
 
-## Nasıl Kullanılır?
+---
 
-* **`.exe` Kullanımı (Windows):** Eğer bir `.exe` dosyası indirildiyse, dosyayı çalıştırın. Ayarlar (`app_data_v2.4.json`) `.exe` ile aynı klasörde oluşturulacaktır. Yazma izniniz olduğundan emin olun.
-* **Kaynak Koddan Çalıştırma:**
-    1.  Sisteminizde Python 3 kurulu olduğundan emin olun. (Tkinter genellikle Python ile birlikte gelir).
-    2.  Depoyu klonlayın veya dosyaları indirin.
-    3.  Komut istemcisi veya terminali açıp kodun bulunduğu klasöre gidin.
-    4.  `python Maliyet V2.py` komutunu çalıştırın .
+## 🛠️ Kurulum ve Çalıştırma
 
-## Veri Depolama
+1.  Yukarıdaki **İndirme (Download)** bölümünden en son sürümü indirin.
+2.  İndirdiğiniz `.zip` dosyasını bir klasöre çıkartın.
+3.  Klasörün içindeki `Maliyet Hesaplayıcı.exe` dosyasına çift tıklayarak uygulamayı başlatın.
 
-Uygulama, tüm ayarlarınızı ve listelerinizi, çalıştırıldığı dizinde `app_data_v2.4.json` adında bir dosyada saklar. Bu dosyayı yedekleyebilir veya farklı bir bilgisayara taşıyarak ayarlarınızı koruyabilirsiniz.
+Uygulama, ayarlarınızı (`app_data.json`) ve satış kayıtlarınızı (`satislar.xlsx`) kendi bulunduğu klasörde oluşturacak ve yönetecektir.
 
-## Dil
+---
 
-Bu sürüm (v2.4) sadece **Türkçe** arayüz sunmaktadır.
+## ⚙️ Otomatik Derleme (GitHub Actions)
+
+Bu proje, güvenilir ve temiz bir `.exe` dosyası oluşturmak için GitHub Actions kullanır. `main` branch'ine `v` harfiyle başlayan yeni bir etiket (örn: `v3.0`, `v3.1`) gönderildiğinde, derleme süreci otomatik olarak başlar ve yeni sürüm "Releases" sayfasında yayınlanır.
+
+---
+
+## 💻 Geliştiriciler İçin
+
+Eğer kodu kendiniz çalıştırmak veya geliştirmek isterseniz:
+
+1.  Projeyi klonlayın:
+    ```bash
+    git clone [https://github.com/](https://github.com/)[kullanici-adiniz]/[depo-adiniz].git
+    ```
+2.  Gerekli kütüphaneleri yükleyin:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  Uygulamayı çalıştırın:
+    ```bash
+    python MaliyetV3.py
+    ```
