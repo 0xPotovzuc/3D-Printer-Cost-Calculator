@@ -1,5 +1,5 @@
 # Bu GitHub Actions iş akışının adı
-name: Build and Release MSI with cx_Freeze
+name: Build Portable EXE with Nuitka
 
 # İş akışının ne zaman tetikleneceğini belirler
 on:
@@ -40,16 +40,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. Adım: cx_Freeze ile .msi yükleyicisi oluşturur
-    - name: Build MSI installer with cx_Freeze
-      run: python setup.py bdist_msi
+    # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with Nuitka
+      run: |
+        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
 
-    # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .msi dosyasını yükler
+    # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .exe dosyasını yükler
     - name: Create or Update Release
       uses: softprops/action-gh-release@v2
       with:
-        # dist klasöründeki .msi uzantılı dosyayı bulup yükler
-        files: dist/*.msi
+        files: dist/"Maliyet Hesaplayıcı.exe"
         tag_name: "latest-build"
         prerelease: true
         generate_release_notes: true
