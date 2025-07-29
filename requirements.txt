@@ -1,3 +1,2 @@
 openpyxl
-nuitka
-zstandard
+cx_Freeze
