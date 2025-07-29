@@ -33,6 +33,19 @@ Bu proje, 3D baskı ile üretim yapanlar için geliştirilmiş, kapsamlı bir ma
 
 ---
 
+## ❤️ Projeyi Destekleyin
+
+Bu uygulamayı faydalı bulduysanız ve geliştirilmesine katkıda bulunmak isterseniz, aşağıdaki yöntemlerle destek olabilirsiniz. Desteğiniz, projenin güncel kalmasına ve yeni özellikler eklenmesine yardımcı olacaktır.
+
+### Kripto Para ile Bağış
+
+- **Ethereum (ETH) ve ERC20 Token'ları:**
+
+0xfd74638d98fdda416c2d84c0a1714a7684d11213
+
+
+---
+
 ## ⚙️ Otomatik ve Güvenilir Derleme
 
 Bu proje, antivirüs programlarının yanlış alarm vermemesi için en güvenilir yöntemlerden biri olan **cx_Freeze** paketleyicisini kullanır. Her kod güncellemesi, temiz bir sanal ortamda GitHub Actions tarafından otomatik olarak derlenir ve yayınlanır. Bu sayede size her zaman en güncel ve güvenli uygulama sunulur.
@@ -44,16 +57,16 @@ Bu proje, antivirüs programlarının yanlış alarm vermemesi için en güvenil
 Eğer kodu kendiniz çalıştırmak veya geliştirmek isterseniz:
 
 1.  Projeyi klonlayın:
-    ```bash
-    git clone https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git
-    ```
+  ```bash
+  git clone https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator].git
+  ```
 
 2.  Gerekli kütüphaneleri yükleyin:
-    ```bash
-    pip install -r requirements.txt
-    ```
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 3.  Uygulamayı çalıştırın:
-    ```bash
-    python MaliyetV3.py
-    ```
+  ```bash
+  python MaliyetV3.py
+  ```
