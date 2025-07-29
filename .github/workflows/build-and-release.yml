@@ -1,5 +1,5 @@
 # Bu GitHub Actions iş akışının adı
-name: Build and Release EXE with Nuitka
+name: Build and Release EXE with cx_Freeze
 
 # İş akışının ne zaman tetikleneceğini belirler
 on:
@@ -28,7 +28,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11' # Kullandığınız Python sürümünü yazabilirsiniz
+        python-version: '3.11'
 
     # 3. Adım: Gerekli kütüphaneleri requirements.txt dosyasından yükler
     - name: Install dependencies
@@ -36,19 +36,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
-    - name: Build executable with Nuitka
-      run: |
-        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
+    # 4. Adım: cx_Freeze ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with cx_Freeze
+      run: python setup.py build
 
-    # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .exe dosyasını yükler
+    # 5. Adım: Oluşturulan derleme klasörünü bir .zip arşivine sıkıştırır
+    # cx_Freeze, 'build' klasörü içinde bir klasör daha oluşturur. İçeriğini ziplememiz gerekir.
+    - name: Zip the executable folder
+      shell: pwsh
+      run: |
+        $buildFolder = Get-ChildItem -Path build -Directory | Where-Object { $_.Name -like 'exe.*' } | Select-Object -First 1
+        Compress-Archive -Path "$($buildFolder.FullName)/*" -DestinationPath "Maliyet-Hesaplayici-Windows.zip"
+
+    # 6. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
     - name: Create or Update Release
       uses: softprops/action-gh-release@v2
       with:
-        files: dist/"Maliyet Hesaplayıcı.exe"
-        # Her çalıştığında "Latest Build" adında tek bir sürüm oluşturur veya günceller
+        files: "Maliyet-Hesaplayici-Windows.zip"
         tag_name: "latest-build"
-        # Bu sürümün bir ön sürüm olduğunu belirtir
         prerelease: true
-        # Sürüm notlarını otomatik olarak oluşturur
         generate_release_notes: true
