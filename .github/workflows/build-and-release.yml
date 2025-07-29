@@ -1,5 +1,5 @@
 # Bu GitHub Actions iş akışının adı
-name: Build Portable EXE with Nuitka
+name: Build Portable App with cx_Freeze
 
 # İş akışının ne zaman tetikleneceğini belirler
 on:
@@ -40,16 +40,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
-    - name: Build executable with Nuitka
-      run: |
-        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --assume-yes-for-downloads --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
+    # 4. Adım: cx_Freeze ile uygulamayı derler
+    - name: Build application with cx_Freeze
+      run: python setup.py build
 
-    # 5. Adım: Oluşturulan .exe dosyasını bir .zip arşivine sıkıştırır
-    - name: Zip the executable
+    # 5. Adım: Oluşturulan derleme klasörünü bir .zip arşivine sıkıştırır
+    - name: Zip the build folder
       shell: pwsh
       run: |
-        Compress-Archive -Path dist/"Maliyet Hesaplayıcı.exe" -DestinationPath "Maliyet-Hesaplayici-Windows.zip"
+        $buildFolder = Get-ChildItem -Path build -Directory | Where-Object { $_.Name -like 'exe.*' } | Select-Object -First 1
+        Compress-Archive -Path "$($buildFolder.FullName)/*" -DestinationPath "Maliyet-Hesaplayici-Windows.zip"
 
     # 6. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
     - name: Create or Update Release
