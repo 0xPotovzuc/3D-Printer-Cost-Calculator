@@ -1,5 +1,5 @@
 # Bu GitHub Actions iş akışının adı
-name: Build Portable App with Briefcase
+name: Build Portable EXE with Nuitka
 
 # İş akışının ne zaman tetikleneceğini belirler
 on:
@@ -40,22 +40,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # 4. Adım: Briefcase ile uygulamayı oluşturur, derler ve paketler
-    - name: Build and package with Briefcase
+    # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with Nuitka
       run: |
-        # Briefcase'in Windows için gerekli şablonları indirmesini sağlar
-        briefcase create windows
-        # Uygulamayı derler
-        briefcase build windows
-        # Uygulamayı bir ZIP dosyası olarak paketler
-        briefcase package windows --packaging-format zip
+        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
 
-    # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
+    # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .exe dosyasını yükler
     - name: Create or Update Release
       uses: softprops/action-gh-release@v2
       with:
-        # Briefcase, paketlenmiş dosyayı bu konuma koyar
-        files: windows/"Maliyet Hesaplayıcı"-3.0.zip
+        files: dist/"Maliyet Hesaplayıcı.exe"
         tag_name: "latest-build"
         prerelease: true
         generate_release_notes: true
