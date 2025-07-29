@@ -1,0 +1,50 @@
+# Bu GitHub Actions iş akışının adı
+name: Create Release and Build EXE
+
+# İş akışının ne zaman tetikleneceğini belirler
+# Bu örnekte, 'v' ile başlayan bir etiket (tag) itildiğinde çalışacak (örn: v1.0, v3.0)
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_release:
+    # İşin çalışacağı sanal makineyi belirtir. Windows için 'windows-latest' kullanılır.
+    runs-on: windows-latest
+
+    steps:
+    # 1. Adım: Depodaki kodları sanal makineye indirir
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Adım: Belirtilen sürümde Python'u kurar
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # Kullandığınız Python sürümünü yazabilirsiniz
+
+    # 3. Adım: Gerekli kütüphaneleri requirements.txt dosyasından yükler
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Adım: PyInstaller ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with PyInstaller
+      run: |
+        pyinstaller --onefile --windowed --name="Maliyet Hesaplayıcı" MaliyetV3.py
+
+    # 5. Adım: Oluşturulan .exe dosyasını bir .zip arşivine sıkıştırır
+    - name: Zip the executable
+      run: |
+        Compress-Archive -Path dist/"Maliyet Hesaplayıcı.exe" -DestinationPath "Maliyet-Hesaplayici-Windows.zip"
+
+    # 6. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: "Maliyet-Hesaplayici-Windows.zip"
+        # Sürüm notlarını otomatik olarak oluşturur
+        generate_release_notes: true
