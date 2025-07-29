@@ -45,7 +45,8 @@ jobs:
       shell: pwsh
       run: |
         $url = "https://github.com/indygreg/PyOxidizer/releases/download/pyoxidizer%2F${env:PYOXIDIZER_VERSION}/pyoxidizer-${env:PYOXIDIZER_VERSION}-x86_64-pc-windows-msvc.tar.gz"
-        Invoke-WebRequest -Uri $url -OutFile pyoxidizer.tar.gz
+        # DEĞİŞTİRİLDİ: Daha güvenilir bir indirme aracı olan curl kullanıldı.
+        curl.exe -L $url -o pyoxidizer.tar.gz
         tar -xzf pyoxidizer.tar.gz
         echo "$PWD/pyoxidizer-${env:PYOXIDIZER_VERSION}-x86_64-pc-windows-msvc" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
