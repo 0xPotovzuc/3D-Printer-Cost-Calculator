@@ -1,0 +1,43 @@
+# Bu GitHub Actions iş akışının adı
+name: Python to EXE Builder
+
+# İş akışının ne zaman tetikleneceğini belirler
+# Bu örnekte, 'main' branch'ine her kod gönderildiğinde (push) çalışacak
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # İşin çalışacağı sanal makineyi belirtir. Windows için 'windows-latest' kullanılır.
+    runs-on: windows-latest
+
+    steps:
+    # 1. Adım: Depodaki kodları sanal makineye indirir
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Adım: Belirtilen sürümde Python'u kurar
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' # Kullandığınız Python sürümünü yazabilirsiniz
+
+    # 3. Adım: Gerekli kütüphaneleri requirements.txt dosyasından yükler
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Adım: PyInstaller ile .py dosyasını .exe'ye dönüştürür
+    - name: Build executable with PyInstaller
+      run: |
+        pyinstaller --onefile --windowed --name="Maliyet Hesaplayıcı" MaliyetV3.py
+
+    # 5. Adım: Oluşturulan .exe dosyasını "Artifacts" olarak kaydeder
+    # Bu sayede derlenmiş dosyayı GitHub üzerinden indirebilirsiniz
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MaliyetHesaplayici-Windows
+        path: dist/Maliyet Hesaplayıcı.exe
