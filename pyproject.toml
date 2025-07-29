@@ -2,7 +2,7 @@
 project_name = "Maliyet Hesaplayıcı"
 version = "3.0"
 description = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
-author = "[kullanici-adiniz]"
+author = "Potovzuc"
 
 [tool.briefcase.app.maliyethesaplayici]
 formal_name = "Maliyet Hesaplayıcı"
@@ -13,8 +13,5 @@ sources = [
 requires = [
     "openpyxl",
 ]
-
-[tool.briefcase.app.maliyethesaplayici.windows]
-requires += [
-    "toga-winforms",
-]
+# Tkinter uygulamaları için platforma özel ek bir gereksinim yoktur.
+# Bu nedenle [tool.briefcase.app.maliyethesaplayici.windows] bölümü kaldırılmıştır.
