@@ -2,13 +2,23 @@
 
 Bu proje, 3D baskı ile üretim yapanlar için geliştirilmiş, kapsamlı bir maliyet ve kar hesaplama uygulamasıdır. Kullanıcı dostu arayüzü sayesinde filament, elektrik, kargo ve pazaryeri komisyonları gibi tüm giderleri kolayca hesaplayabilir ve satışlarınızı bir Excel dosyasında takip edebilirsiniz.
 
+### ⚠️ Önemli Uyarı: Lütfen Okuyun
+
+> **Merhaba!** Bu uygulama **taşınabilir (portable)** olarak paketlenmiştir ve bilgisayarınıza herhangi bir kurulum yapmaz.
+>
+> - **Çalıştırma:** Uygulamanın düzgün çalışabilmesi için, indirdiğiniz `.zip` dosyasını bir klasöre çıkartın. `Maliyet Hesaplayıcı.exe`'nin çalışması için klasördeki diğer dosyaları **silmeyin** veya yerini **değiştirmeyin**.
+> - **Kısayol Oluşturma:** Uygulamaya kolayca erişmek için `Maliyet Hesaplayıcı.exe` dosyasına sağ tıklayıp "Kısayol Oluştur" seçeneğini kullanabilirsiniz. Bu kısayolu Masaüstü'ne taşıyabilirsiniz.
+> - **Excel Dosyası:** Satış kayıtlarınız (`satislar.xlsx`) da bu klasörün içinde oluşacaktır. Bu dosyaya da kolayca erişmek için bir kısayol oluşturabilirsiniz.
+
 ---
 
-## 🚀 İndirme (Download)
+## ✅ Güvenlik ve İndirme
 
-Uygulamanın en güncel ve stabil sürümünü aşağıdaki linkten indirebilirsiniz. Bu link sizi projenin "Releases" sayfasına yönlendirecektir.
+| Dosya | İndirme Linki | VirusTotal Sonucu |
+| :--- | :---: | :---: |
+| **Maliyet Hesaplayıcı (ZIP)** | [**► Son Sürümü İndir**](https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator/releases/latest) | [![VirusTotal Sonucu](https://www.virustotal.com/gui/images/VT_logo.svg)](https://www.virustotal.com/gui/file/b2984bdec689139cf5bfa888aa5a88562162049bbb1ef9e0ed21e5765c41ef7c/detection) | [![VirusTotal Sonucu](https://www.virustotal.com/gui/images/VT_logo.svg)](https://www.virustotal.com/gui/file/830e64f1e0fa1598a82c845ca2d4e857083f207197599aa070d9c39d83a536b2)
 
-[**► Son Sürümü İndir (Windows x64)**](https://github.com/[kullanici-adiniz]/[depo-adiniz]/releases/latest)
+> **Not:** Yukarıdaki indirme linki sizi her zaman uygulamanın en güncel sürümüne yönlendirir. VirusTotal logosuna tıklayarak dosyanın temiz olduğunu doğrulayabilirsiniz.
 
 ---
 
@@ -18,24 +28,14 @@ Uygulamanın en güncel ve stabil sürümünü aşağıdaki linkten indirebilirs
 - **Pazaryeri Entegrasyonu:** Farklı pazaryerleri için değişken komisyon oranları ve sabit ücretleri tanımlayabilme.
 - **Kar Hesaplama:** Belirlediğiniz kar marjına göre otomatik satış fiyatı önerme.
 - **Excel'e Satış Kaydı:** Her bir satışı, tüm maliyet ve kar detaylarıyla birlikte tek bir tuşla `satislar.xlsx` dosyasına kaydetme.
-- **Otomatik Özet Raporu:** Excel dosyasında, her yeni satışta otomatik olarak güncellenen ayrı bir "Özet" sayfası. Bu sayfa, harcanan toplam filament miktarını (her tür için ayrı) ve genel finansal toplamları (toplam maliyet, satış, kar) gösterir.
+- **Otomatik Özet Raporu:** Excel dosyasında, her yeni satışta otomatik olarak güncellenen ayrı bir "Özet" sayfası.
 - **Esnek Ayarlar:** Filament türleri, kargo firmaları, elektrik tarifeleri ve pazaryerlerini kolayca ekleyip düzenleyebilme.
 
 ---
 
-## 🛠️ Kurulum ve Çalıştırma
+## ⚙️ Otomatik ve Güvenilir Derleme
 
-1.  Yukarıdaki **İndirme (Download)** bölümünden en son sürümü indirin.
-2.  İndirdiğiniz `.zip` dosyasını bir klasöre çıkartın.
-3.  Klasörün içindeki `Maliyet Hesaplayıcı.exe` dosyasına çift tıklayarak uygulamayı başlatın.
-
-Uygulama, ayarlarınızı (`app_data.json`) ve satış kayıtlarınızı (`satislar.xlsx`) kendi bulunduğu klasörde oluşturacak ve yönetecektir.
-
----
-
-## ⚙️ Otomatik Derleme (GitHub Actions)
-
-Bu proje, güvenilir ve temiz bir `.exe` dosyası oluşturmak için GitHub Actions kullanır. `main` branch'ine `v` harfiyle başlayan yeni bir etiket (örn: `v3.0`, `v3.1`) gönderildiğinde, derleme süreci otomatik olarak başlar ve yeni sürüm "Releases" sayfasında yayınlanır.
+Bu proje, antivirüs programlarının yanlış alarm vermemesi için en güvenilir yöntemlerden biri olan **cx_Freeze** paketleyicisini kullanır. Her kod güncellemesi, temiz bir sanal ortamda GitHub Actions tarafından otomatik olarak derlenir ve yayınlanır. Bu sayede size her zaman en güncel ve güvenli uygulama sunulur.
 
 ---
 
@@ -45,12 +45,14 @@ Eğer kodu kendiniz çalıştırmak veya geliştirmek isterseniz:
 
 1.  Projeyi klonlayın:
     ```bash
-    git clone [https://github.com/](https://github.com/)[kullanici-adiniz]/[depo-adiniz].git
+    git clone [https://github.com/](https://github.com/)0xPotovzuc/3D-Printer-Cost-Calculator.git
     ```
+
 2.  Gerekli kütüphaneleri yükleyin:
     ```bash
     pip install -r requirements.txt
     ```
+
 3.  Uygulamayı çalıştırın:
     ```bash
     python MaliyetV3.py
