@@ -1,0 +1,28 @@
+# pyoxidizer.bzl - PyOxidizer için yapılandırma dosyası
+
+def make_exe():
+    """Bu fonksiyon, son .exe dosyasının nasıl oluşturulacağını tanımlar."""
+
+    # PyOxidizer'ın kullanacağı standart bir Python dağıtımını seçiyoruz.
+    dist = PyOxidizerDistribution()
+
+    # .exe dosyasının ayarlarını yapıyoruz.
+    exe = dist.to_python_executable(
+        name="Maliyet_Hesaplayici",
+        # Uygulamanın hangi script ile başlayacağını belirtiyoruz.
+        script_path="MaliyetV3.py",
+    )
+
+    # requirements.txt dosyasındaki kütüphaneleri .exe'nin içine ekliyoruz.
+    exe.add_python_resources(dist.pip_install(["-r", "requirements.txt"]))
+
+    # Uygulama çalıştırıldığında arkada siyah bir konsol penceresi açılmasını engeller.
+    exe.windows_subsystem = "windows"
+
+    return exe
+
+# Oluşturulacak hedefi "exe" olarak kaydediyoruz.
+register_target("exe", make_exe)
+
+# `pyoxidizer build` komutu çalıştırıldığında varsayılan olarak bu hedefi kullanmasını söylüyoruz.
+setDefaultTarget("exe")
