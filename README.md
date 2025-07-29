@@ -1,4 +1,4 @@
-# 🧾 3D Baskı Maliyet & Kar Hesaplayıcı v2.4 💰
+# 🧾 3D Baskı Maliyet & Kar Hesaplayıcı v2.0 💰
 
 ## 🚀 İndirme / Download
 
