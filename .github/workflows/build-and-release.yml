@@ -53,10 +53,11 @@ jobs:
 
     # 6. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
     - name: Create or Update Release
-      uses: softprops/action-gh-release@v2
+      uses: ncipollo/release-action@v1
       with:
+        artifacts: "Maliyet-Hesaplayici-Windows.zip"
+        tag: "latest-build"
         token: ${{ secrets.GITHUB_TOKEN }}
-        files: "Maliyet-Hesaplayici-Windows.zip"
-        tag_name: "latest-build"
+        allowUpdates: true
         prerelease: true
-        generate_release_notes: true
+        generateReleaseNotes: true
