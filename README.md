@@ -16,7 +16,7 @@ Bu proje, 3D baskı ile üretim yapanlar için geliştirilmiş, kapsamlı bir ma
 
 | Dosya | İndirme Linki | VirusTotal (ZIP Arşivi) | VirusTotal (EXE Dosyası) |
 | :--- | :---: | :---: | :---: |
-| **Maliyet Hesaplayıcı (ZIP)** | [**► Son Sürümü İndir**](https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator/releases/latest) | [Sonuçları Gör](https://www.virustotal.com/gui/file/b2984bdec689139cf5bfa888aa5a88562162049bbb1ef9e0ed21e5765c41ef7c/detection) | [Sonuçları Gör](https://www.virustotal.com/gui/file/830e64f1e0fa1598a82c845ca2d4e857083f207197599aa070d9c39d83a536b2) |
+| **Maliyet Hesaplayıcı (ZIP)** | [**► Son Sürümü İndir**](https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator/releases/download/latest-build/Maliyet-Hesaplayici-Windows.zip) | [Sonuçları Gör](https://www.virustotal.com/gui/file/b2984bdec689139cf5bfa888aa5a88562162049bbb1ef9e0ed21e5765c41ef7c/detection) | [Sonuçları Gör](https://www.virustotal.com/gui/file/830e64f1e0fa1598a82c845ca2d4e857083f207197599aa070d9c39d83a536b2) |
 
 > **Not:** Yukarıdaki indirme linki sizi her zaman uygulamanın en güncel sürümüne yönlendirir. Güvenliğiniz için hem indirilen `.zip` arşivinin hem de içindeki `.exe` dosyasının VirusTotal sonuçlarını kontrol edebilirsiniz.
 
