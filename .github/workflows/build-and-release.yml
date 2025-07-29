@@ -44,14 +44,37 @@ jobs:
     - name: Build application with cx_Freeze
       run: python setup.py build
 
-    # 5. Adım: Oluşturulan derleme klasörünü bir .zip arşivine sıkıştırır
+    # YENİ EKLENDİ - 5. Adım: UYARI.txt dosyasını oluşturur
+    - name: Create README file for users
+      shell: pwsh
+      run: |
+        $buildFolder = Get-ChildItem -Path build -Directory | Where-Object { $_.Name -like 'exe.*' } | Select-Object -First 1
+        $readmeContent = @"
+        --- ÖNEMLİ BİLGİLENDİRME ---
+
+        Merhaba! Bu uygulama taşınabilir (portable) olarak paketlenmiştir ve kurulum gerektirmez.
+
+        1. UYGULAMANIN ÇALIŞMASI:
+           'Maliyet Hesaplayıcı.exe' dosyasının düzgün çalışabilmesi için bu klasördeki diğer dosyaları ve klasörleri SİLMEYİN veya YERİNİ DEĞİŞTİRMEYİN.
+
+        2. KISAYOL OLUŞTURMA:
+           Uygulamaya kolayca erişmek için 'Maliyet Hesaplayıcı.exe' dosyasına sağ tıklayıp "Kısayol Oluştur" seçeneğini kullanabilirsiniz. Oluşturduğunuz bu kısayolu Masaüstü'ne veya istediğiniz başka bir yere taşıyabilirsiniz.
+
+        3. EXCEL DOSYASI:
+           Satışlarınızı kaydettiğiniz 'satislar.xlsx' dosyası da bu klasörün içinde oluşacaktır. Bu dosyaya da kolayca erişmek için bir kısayol oluşturmanızı tavsiye ederiz.
+
+        Bu klasörü istediğiniz yere (örneğin Belgelerim veya Masaüstü) taşıyabilirsiniz.
+        "@
+        Set-Content -Path "$($buildFolder.FullName)/UYARI.txt" -Value $readmeContent -Encoding utf8
+
+    # 6. Adım: Oluşturulan derleme klasörünü bir .zip arşivine sıkıştırır
     - name: Zip the build folder
       shell: pwsh
       run: |
         $buildFolder = Get-ChildItem -Path build -Directory | Where-Object { $_.Name -like 'exe.*' } | Select-Object -First 1
         Compress-Archive -Path "$($buildFolder.FullName)/*" -DestinationPath "Maliyet-Hesaplayici-Windows.zip"
 
-    # 6. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
+    # 7. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .zip dosyasını yükler
     - name: Create or Update Release
       uses: ncipollo/release-action@v1
       with:
