@@ -9,12 +9,14 @@ if sys.platform == "win32":
 # MSI yükleyicisi için seçenekler
 bdist_msi_options = {
     "add_to_path": False,
-    "initial_target_dir": r"%ProgramFiles%\MaliyetHesaplayici",
-    "all_users": True,
+    # DEĞİŞTİRİLDİ: Kurulum dizini, yönetici izni gerektirmeyen kullanıcı klasörü olarak ayarlandı.
+    "initial_target_dir": r"[LocalAppDataFolder]\MaliyetHesaplayici",
+    # DEĞİŞTİRİLDİ: Kurulumun sadece mevcut kullanıcı için yapılması sağlandı.
+    "all_users": False,
 }
 
 setup(
-    # DEĞİŞTİRİLDİ: Türkçe karakter sorunlarını önlemek için isim basitleştirildi.
+    # Türkçe karakter sorunlarını önlemek için isim basitleştirildi.
     name="MaliyetHesaplayici",
     version="3.0",
     description="3D Baskı Maliyet & Kar Hesaplayıcı Pro",
