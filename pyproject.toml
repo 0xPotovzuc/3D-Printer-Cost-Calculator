@@ -1,0 +1,20 @@
+[tool.briefcase]
+project_name = "Maliyet Hesaplayıcı"
+version = "3.0"
+description = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
+author = "[kullanici-adiniz]"
+
+[tool.briefcase.app.maliyethesaplayici]
+formal_name = "Maliyet Hesaplayıcı"
+bundle = "com.example"
+sources = [
+    "MaliyetV3.py",
+]
+requires = [
+    "openpyxl",
+]
+
+[tool.briefcase.app.maliyethesaplayici.windows]
+requires += [
+    "toga-winforms",
+]
