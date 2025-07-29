@@ -39,7 +39,7 @@ jobs:
     # 4. Adım: Nuitka ile .py dosyasını .exe'ye dönüştürür
     - name: Build executable with Nuitka
       run: |
-        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --output-name="Maliyet Hesaplayıcı" --output-dir=dist MaliyetV3.py
+        python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
 
     # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .exe dosyasını yükler
     - name: Create or Update Release
