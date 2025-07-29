@@ -15,6 +15,10 @@ jobs:
     # İşin çalışacağı sanal makineyi belirtir. Windows için 'windows-latest' kullanılır.
     runs-on: windows-latest
 
+    # YENİ EKLENDİ: İş akışına sürüm oluşturma izni verir
+    permissions:
+      contents: write
+
     steps:
     # 1. Adım: Depodaki kodları sanal makineye indirir
     - name: Checkout repository
