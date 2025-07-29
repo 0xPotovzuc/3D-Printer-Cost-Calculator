@@ -45,11 +45,14 @@ jobs:
       run: |
         python -m nuitka --onefile --windows-disable-console --enable-plugin=tk-inter --assume-yes-for-downloads --output-filename="Maliyet Hesaplayıcı.exe" --output-dir=dist MaliyetV3.py
 
+    # YENİ EKLENDİ: Derleme sonrası oluşan dosyaları listeler (Hata ayıklama için)
+    - name: List build artifacts
+      run: ls -R dist
+
     # 5. Adım: Otomatik olarak bir GitHub Sürümü (Release) oluşturur ve .exe dosyasını yükler
     - name: Create or Update Release
       uses: softprops/action-gh-release@v2
       with:
-        # DEĞİŞTİRİLDİ: İzin sorunlarını çözmek için token eklendi.
         token: ${{ secrets.GITHUB_TOKEN }}
         files: dist/"Maliyet Hesaplayıcı.exe"
         tag_name: "latest-build"
