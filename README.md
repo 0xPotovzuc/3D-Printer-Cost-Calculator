@@ -33,6 +33,55 @@ Bu proje, 3D baskı ile üretim yapanlar için geliştirilmiş, kapsamlı bir ma
 
 ---
 
+## ⚙️ Hesaplama Detayları
+
+### Elektrik Maliyeti Nasıl Hesaplanır?
+
+Uygulama, elektrik maliyetini adil ve doğru bir şekilde hesaplamak için standart formülleri kullanır. Hesaplama için üç temel bilgiye ihtiyaç vardır:
+
+1.  **Cihaz Gücü (Watt):** 3D yazıcınızın ve bağlı diğer ekipmanların (örneğin Raspberry Pi) ortalama güç tüketimi. Bu değeri uygulamanın ayarlar bölümünden varsayılan olarak belirleyebilirsiniz.
+2.  **Baskı Süresi (Saat):** Baskının toplam ne kadar sürdüğü.
+3.  **Elektrik Birim Fiyatı (TL/kWh):** Ayarlar bölümünde belirlediğiniz "Ticari" veya "Mesken" tarifesine ait 1 kilowatt-saat (kWh) elektrik bedeli.
+
+#### Adım 1: Toplam Enerji Tüketimini Hesaplama (kWh)
+
+İlk olarak, cihazın baskı süresince ne kadar enerji tükettiği kilowatt-saat (kWh) cinsinden bulunur.
+
+```latex
+$$\text{Toplam Tüketim (kWh)} = \frac{\text{Cihaz Gücü (Watt)} \times \text{Baskı Süresi (Saat)}}{1000}$$
+```
+
+#### Adım 2: Toplam Elektrik Maliyetini Hesaplama (TL)
+
+Bulunan toplam tüketim değeri, belirlediğiniz tarifenin birim fiyatı ile çarpılarak toplam maliyet hesaplanır.
+
+```latex
+$$\text{Elektrik Maliyeti (TL)} = \text{Toplam Tüketim (kWh)} \times \text{Birim Fiyat (TL/kWh)}$$
+```
+
+#### Örnek Hesaplama:
+
+- **Cihaz Gücü:** `130 Watt`
+- **Baskı Süresi:** `10 Saat`
+- **Elektrik Birim Fiyatı (Ticari):** `5.54 TL/kWh`
+
+1.  **Toplam Tüketim:**
+    ```latex
+    $$
+    \frac{130 \text{ Watt} \times 10 \text{ Saat}}{1000} = 1.3 \text{ kWh}
+    $$
+    ```
+
+2.  **Toplam Maliyet:**
+    ```latex
+    $$
+    1.3 \text{ kWh} \times 5.54 \text{ TL/kWh} = 7.20 \text{ TL}
+    $$
+    ```
+Bu hesaplama sonucunda, 10 saatlik baskının elektrik maliyeti `7.20 TL` olarak bulunur.
+
+---
+
 ## ❤️ Projeyi Destekleyin
 
 Bu uygulamayı faydalı bulduysanız ve geliştirilmesine katkıda bulunmak isterseniz, aşağıdaki yöntemlerle destek olabilirsiniz. Desteğiniz, projenin güncel kalmasına ve yeni özellikler eklenmesine yardımcı olacaktır.
@@ -40,9 +89,7 @@ Bu uygulamayı faydalı bulduysanız ve geliştirilmesine katkıda bulunmak iste
 ### Kripto Para ile Bağış
 
 - **Ethereum (ETH) ve ERC20 Token'ları:**
-
-0xfd74638d98fdda416c2d84c0a1714a7684d11213
-
+  `0xfd74638d98fdda416c2d84c0a1714a7684d11213`
 
 ---
 
@@ -57,16 +104,15 @@ Bu proje, antivirüs programlarının yanlış alarm vermemesi için en güvenil
 Eğer kodu kendiniz çalıştırmak veya geliştirmek isterseniz:
 
 1.  Projeyi klonlayın:
-  ```bash
-  git clone https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git
-  ```
+    ```bash
+    git clone [https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git](https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git)
+    ```
 
 2.  Gerekli kütüphaneleri yükleyin:
-  ```bash
-  pip install -r requirements.txt
-  ```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 3.  Uygulamayı çalıştırın:
-  ```bash
-  python MaliyetV3.py
-  ```
+    ```bash
+    python MaliyetV3.py
