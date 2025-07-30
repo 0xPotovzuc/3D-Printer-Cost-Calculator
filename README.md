@@ -105,7 +105,7 @@ Eğer kodu kendiniz çalıştırmak veya geliştirmek isterseniz:
 
 1.  Projeyi klonlayın:
     ```bash
-    git clone [https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git](https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git)
+    git clone https://github.com/0xPotovzuc/3D-Printer-Cost-Calculator.git
     ```
 
 2.  Gerekli kütüphaneleri yükleyin:
