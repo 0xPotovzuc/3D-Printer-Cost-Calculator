@@ -2,7 +2,7 @@ import sys
 from cx_Freeze import setup, Executable
 
 # --- UYGULAMA BİLGİLERİ ---
-# Bu değerleri projenin ana betiği (MaliyetV4.py) ile uyumlu tutun.
+# Bu değerleri projenin ana betiği (MaliyetV4Beta2.py) ile uyumlu tutun.
 APP_NAME = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
 APP_VERSION = "4.0"
 SCRIPT_FILE = "MaliyetV4.py"
@@ -11,26 +11,29 @@ EXECUTABLE_NAME = "Maliyet Hesaplayıcı"
 # --- cx_Freeze AYARLARI ---
 
 # Derleme sırasında dahil edilecek veya hariç tutulacak paketleri belirtir.
-# Otomatik algılanamayan veya sorun çıkaran kütüphaneleri 'packages' listesine ekleyebilirsiniz.
+# Otomatik olarak algılanamayan veya sorun çıkaran kütüphaneleri buraya ekleyin.
 build_exe_options = {
     "packages": [
         "os",
         "tkinter",
-        "ttkbootstrap",
-        "matplotlib.pyplot",
-        "matplotlib.backends.backend_tkagg"
+        "customtkinter",  # Yeni arayüz kütüphanesi
+        "matplotlib",     # Grafikler için
+        "reportlab",      # PDF raporlama için
+        "collections",
+        "shutil"
     ],
     "excludes": [
         "unittest", # Test kütüphanelerini dahil etme
         "pydoc",
         "pydoc_data"
     ],
-    # Uygulamanızın yanında bulunması gereken ek dosyalar (örneğin ikonlar, resimler).
-    # "include_files": ["icon.ico", "images/"]
+    # customtkinter'ın temaları ve fontları gibi ek dosyaları dahil etmek için.
+    # cx_Freeze bazen bu dosyaları otomatik bulamaz.
+    # Eğer derleme sonrası tema hataları alırsanız bu bölümü kullanmanız gerekebilir.
+    # "include_files": []
 }
 
 # Windows'ta GUI uygulamaları için konsol penceresini gizler.
-# Diğer işletim sistemleri için 'base' None olarak kalır.
 base = None
 if sys.platform == "win32":
     base = "Win32GUI"
@@ -40,7 +43,6 @@ executable = Executable(
     script=SCRIPT_FILE,          # Ana Python betiğiniz
     base=base,                   # GUI uygulaması için konsolu gizler
     target_name=f"{EXECUTABLE_NAME}.exe", # Oluşturulacak .exe dosyasının adı
-    # icon="icon.ico"            # Opsiyonel: Uygulama ikonu eklemek için bu satırı aktifleştirin
 )
 
 # cx_Freeze kurulumunu yapılandırır ve başlatır.
@@ -51,3 +53,4 @@ setup(
     options={"build_exe": build_exe_options},
     executables=[executable]
 )
+
