@@ -1,1 +1,4 @@
-openpyxl
+customtkinter
+matplotlib
+cx_Freeze
+reportlab
