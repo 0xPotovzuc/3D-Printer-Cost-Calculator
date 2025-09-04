@@ -7,7 +7,7 @@ import customtkinter
 # Bu değerleri projenin ana betiği (MaliyetV4Beta2.py) ile uyumlu tutun.
 APP_NAME = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
 APP_VERSION = "4.0"
-SCRIPT_FILE = "MaliyetV4Beta2.py"
+SCRIPT_FILE = "MaliyetV4.py"
 EXECUTABLE_NAME = "Maliyet Hesaplayıcı"
 
 # --- cx_Freeze AYARLARI ---
