@@ -13,10 +13,26 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import shutil
 from collections import defaultdict
 
-# --- Uygulama Sabitleri ---
+# --- UYGULAMA SABİTLERİ ---
 APP_NAME = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
-APP_VERSION = "V4.0" # Sürüm isteğiniz üzerine güncellendi
+APP_VERSION = "4.0" # Sürüm isteğiniz üzerine güncellendi
 DATA_FILE_NAME = "app_data.json"
+
+# --- YENİ: DOĞRU DOSYA YOLUNU BULMA FONKSİYONU ---
+def get_resource_path(relative_path):
+    """
+    Uygulama verilerinin yolunu, programın çalıştırıldığı ortama
+    (hem geliştirme hem de derlenmiş .exe) göre doğru bir şekilde belirler.
+    Bu fonksiyon, "No such file or directory" hatasını çözer.
+    """
+    if getattr(sys, 'frozen', False):
+        # Program derlenmişse (.exe), çalıştırılabilir dosyanın yanına bakar.
+        base_path = os.path.dirname(sys.executable)
+    else:
+        # Program normal bir Python betiği olarak çalıştırılıyorsa,
+        # betik dosyasının yanına bakar.
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, relative_path)
 
 # JSON veri yapısı için anahtarlar
 KEY_FILAMENTS = "filament_data"
@@ -231,7 +247,8 @@ class CostCalculatorApp:
         self.cost_entries["device_power"].insert(0, str(default_power))
 
     def _load_data(self):
-        data_path = os.path.join(getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__))), DATA_FILE_NAME)
+        # DEĞİŞİKLİK: Yeni fonksiyon kullanılıyor
+        data_path = get_resource_path(DATA_FILE_NAME)
         if os.path.exists(data_path):
             try:
                 with open(data_path, "r", encoding='utf-8') as f:
@@ -263,7 +280,8 @@ class CostCalculatorApp:
             self._save_data()
 
     def _save_data(self):
-        data_path = os.path.join(getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__))), DATA_FILE_NAME)
+        # DEĞİŞİKLİK: Yeni fonksiyon kullanılıyor
+        data_path = get_resource_path(DATA_FILE_NAME)
         data_to_save = {
             KEY_FILAMENTS: self.filaments,
             KEY_ELECTRICITY: self.electricity_prices,
@@ -1387,7 +1405,7 @@ class CostCalculatorApp:
 
     def _backup_data(self):
         self._save_data() # En son verilerin kaydedildiğinden emin ol
-        source_path = os.path.join(getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__))), DATA_FILE_NAME)
+        source_path = get_resource_path(DATA_FILE_NAME)
         
         backup_path = filedialog.asksaveasfilename(
             defaultextension=".json",
@@ -1415,7 +1433,7 @@ class CostCalculatorApp:
 
         if backup_path:
             try:
-                destination_path = os.path.join(getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__))), DATA_FILE_NAME)
+                destination_path = get_resource_path(DATA_FILE_NAME)
                 shutil.copy(backup_path, destination_path)
                 
                 # Verileri yeniden yükle ve arayüzü güncelle
