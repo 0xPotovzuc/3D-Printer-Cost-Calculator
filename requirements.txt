@@ -2,3 +2,5 @@ customtkinter
 matplotlib
 cx_Freeze
 reportlab
+ttkbootstrap
+
