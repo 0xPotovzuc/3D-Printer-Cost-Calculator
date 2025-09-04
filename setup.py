@@ -12,8 +12,10 @@ EXECUTABLE_NAME = "Maliyet Hesaplayıcı"
 
 # --- cx_Freeze AYARLARI ---
 
-# customtkinter tema dosyalarının yolunu bulur.
-# Bu, "AttributeError: type object 'ThemeManager' has no attribute 'theme_path'" hatasını çözer.
+# --- HATA ÇÖZÜMÜ ---
+# Aşağıdaki bölüm, customtkinter kütüphanesinin tema dosyalarını içeren 'assets'
+# klasörünün yolunu dinamik olarak bulur. Bu, daha önceki
+# "AttributeError: ... has no attribute 'theme_path'" hatasını çözer.
 customtkinter_path = os.path.join(os.path.dirname(customtkinter.__file__), "assets")
 
 # Derleme sırasında dahil edilecek veya hariç tutulacak paketleri belirtir.
@@ -36,6 +38,7 @@ build_exe_options = {
     # Bu bölüm, "No such file or directory" ve "AttributeError" hatalarını çözer.
     "include_files": [
         ("app_data.json", "app_data.json"), # (kaynak, hedef)
+        # Bu satır, bulunan 'assets' klasörünü derlenmiş pakete dahil eder.
         (customtkinter_path, "lib/customtkinter/assets") # (kaynak, hedef)
     ]
 }
