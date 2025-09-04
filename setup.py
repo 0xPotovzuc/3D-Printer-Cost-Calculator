@@ -4,7 +4,7 @@ from cx_Freeze import setup, Executable
 import customtkinter
 
 # --- UYGULAMA BİLGİLERİ ---
-
+# Bu değerleri projenin ana betiği (MaliyetV4Beta2.py) ile uyumlu tutun.
 APP_NAME = "3D Baskı Maliyet & Kar Hesaplayıcı Pro"
 APP_VERSION = "4.0"
 SCRIPT_FILE = "MaliyetV4.py"
@@ -12,8 +12,8 @@ EXECUTABLE_NAME = "Maliyet Hesaplayıcı"
 
 # --- cx_Freeze AYARLARI ---
 
-# customtkinter tema dosyalarının yolunu bulur
-# Bu, "AttributeError" hatasını çözer.
+# customtkinter tema dosyalarının yolunu bulur.
+# Bu, "AttributeError: type object 'ThemeManager' has no attribute 'theme_path'" hatasını çözer.
 customtkinter_path = os.path.join(os.path.dirname(customtkinter.__file__), "assets")
 
 # Derleme sırasında dahil edilecek veya hariç tutulacak paketleri belirtir.
