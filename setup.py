@@ -1,4 +1,5 @@
 import sys
+import os
 from cx_Freeze import setup, Executable
 import customtkinter
 
@@ -11,8 +12,11 @@ EXECUTABLE_NAME = "Maliyet Hesaplayıcı"
 
 # --- cx_Freeze AYARLARI ---
 
+# customtkinter tema dosyalarının yolunu bulur
+# Bu, "AttributeError" hatasını çözer.
+customtkinter_path = os.path.join(os.path.dirname(customtkinter.__file__), "assets")
+
 # Derleme sırasında dahil edilecek veya hariç tutulacak paketleri belirtir.
-# Otomatik olarak algılanamayan veya sorun çıkaran kütüphaneleri buraya ekleyin.
 build_exe_options = {
     "packages": [
         "os",
@@ -29,10 +33,10 @@ build_exe_options = {
         "pydoc_data"
     ],
     # customtkinter'ın temaları ve veri dosyası gibi ek dosyaları dahil etmek için.
-    # Bu bölüm, "No such file or directory" hatasını çözer.
+    # Bu bölüm, "No such file or directory" ve "AttributeError" hatalarını çözer.
     "include_files": [
         ("app_data.json", "app_data.json"), # (kaynak, hedef)
-        (customtkinter.ThemeManager.theme_path, "lib/customtkinter")
+        (customtkinter_path, "lib/customtkinter/assets") # (kaynak, hedef)
     ]
 }
 
