@@ -1,0 +1,24 @@
+{
+    "filament_data": [],
+    "electricity_prices": {
+        "ticari": 5.54,
+        "mesken": 3.11
+    },
+    "shipping_prices": {},
+    "marketplaces": {
+        "Diğer/Yok": {
+            "rate": 0.0,
+            "fixed": 0.0,
+            "vat_type": "Dahil"
+        }
+    },
+    "settings": {
+        "costing_electricity_type": "ticari",
+        "default_device_power": 130.0,
+        "general_vat_rate": 20.0,
+        "withholding_tax_rate": 1.0,
+        "high_precision": false
+    },
+    "sales_history": [],
+    "filament_inventory": {}
+}
